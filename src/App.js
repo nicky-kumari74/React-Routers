@@ -1,25 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-
+import React, { useState, useEffect } from 'react'
 function App() {
+  const [count,setcount]=useState(10)
+  const [data,setdata]=useState(1)
+  useEffect(()=>{
+    alert("effect count")
+  },[count])
+  useEffect(()=>{
+    alert("effect data")
+  },[data])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>count {count}</h1>
+      <h1>data {data}</h1>
+      <button onClick={()=>setcount(count+1)}>update count</button>
+      <button onClick={()=>setdata(data+1)}>update data</button>
     </div>
   );
+  
 }
 
 export default App;
