@@ -1,21 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react'
+import useTitle from './useTitle'
 function App() {
-  const [count,setcount]=useState(10)
-  const [data,setdata]=useState(1)
-  useEffect(()=>{
-    alert("effect count")
-  },[count])
-  useEffect(()=>{
-    alert("effect data")
-  },[data])
+  const [count,setcount]=useState(0)
+  useTitle(count)
   return (
     <div className="App">
-      <h1>count {count}</h1>
-      <h1>data {data}</h1>
-      <button onClick={()=>setcount(count+1)}>update count</button>
-      <button onClick={()=>setdata(data+1)}>update data</button>
+      <h1>custome hooks</h1><br></br>
+      <h2>count: {count}</h2>
+      <button onClick={()=>setcount(count+1)}>clicks</button>
     </div>
   );
   
